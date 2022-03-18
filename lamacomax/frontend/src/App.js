@@ -1,9 +1,13 @@
 import React from "react";
 import logo from './logo.svg';
-import './App.css';
 
-class App extends React.Component {
-  constructor(props) {
+
+const App = () => {
+  
+  return (
+      <h2>Test</h2>
+  )
+  /** constructor(props) {
     super(props);
     this.state={apiResponse:''};
   }
@@ -24,6 +28,7 @@ class App extends React.Component {
       </div>
     )
   }
+   **/
 }
 
 export default App;
