@@ -1,8 +1,47 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './navbar.css';
 import {NavLink} from "react-router-dom";
+import $ from 'jquery';
 
 const Navbar = () => {
+    
+    function animate() {
+        var tabsNewAnim = $('#navbarSupportedContent');
+        var activeItemNewAnim = tabsNewAnim.find('.active');
+        var activeWidthNewAnimHeight = activeItemNewAnim.innerHeight();
+        var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
+        var itemPosNewAnimTop = activeItemNewAnim.position();
+        var itemPosNewAnimLeft = activeItemNewAnim.position();
+        $(".hori-selector").css({
+          "top":itemPosNewAnimTop.top + "px", 
+          "left":itemPosNewAnimLeft.left + "px",
+          "height": activeWidthNewAnimHeight + "px",
+          "width": activeWidthNewAnimWidth + "px"
+        });
+        $("#navbarSupportedContent").on("click","li",function(e){
+          $('#navbarSupportedContent ul li').removeClass("active");
+          $(this).addClass('active');
+          var activeWidthNewAnimHeight = $(this).innerHeight();
+          var activeWidthNewAnimWidth = $(this).innerWidth();
+          var itemPosNewAnimTop = $(this).position();
+          var itemPosNewAnimLeft = $(this).position();
+          $(".hori-selector").css({
+            "top":itemPosNewAnimTop.top + "px", 
+            "left":itemPosNewAnimLeft.left + "px",
+            "height": activeWidthNewAnimHeight + "px",
+            "width": activeWidthNewAnimWidth + "px"
+          });
+        });
+    }
+    
+    useEffect(() => {
+        animate();
+    $(window).on('resize', function(){
+      setTimeout(function(){ animate(); }, 500);
+    });
+    
+  }, []);
+    
     return (
         <nav className='navbar navbar-expand-lg navbar-mainbg'>
             
@@ -24,7 +63,7 @@ const Navbar = () => {
             <div 
                 className='collapse navbar-collapse'
                 id='navbarSupportContent'>
-                <ul className='navbar-nav ml-auto'>
+                <ul className='navbar-nav ms-auto'>
                     <div className='hori-selector'>
                         <div className='left'></div>
                         <div className='right'></div>
@@ -39,21 +78,21 @@ const Navbar = () => {
                     
                     <li className='nav-item active'>
                         <NavLink className='nav-link' to='/equipe' exact>
-                            <i className='fas fa-tachometer-alt'></i>
+                            <i className='far fa-address-book'></i>
                             EQUIPE
                         </NavLink>
                     </li>
                     
                     <li className='nav-item active'>
                         <NavLink className='nav-link' to='/rdv' exact>
-                            <i className='fas fa-tachometer-alt'></i>
+                            <i className='far fa-clone'></i>
                             RENDEZ-VOUS
                         </NavLink>
                     </li>
                     
                     <li className='nav-item active'>
                         <NavLink className='nav-link' to='/contact' exact>
-                            <i className='fas fa-tachometer-alt'></i>
+                            <i className='far fa-chart-bar'></i>
                             CONTACT
                         </NavLink>
                     </li>
