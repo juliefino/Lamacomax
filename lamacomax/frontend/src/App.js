@@ -1,24 +1,27 @@
 import React from "react";
 // import logo from './logo.svg';
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import {BrowserRouter as Router, Route, Routes, Navigate} from "react-router-dom";
 
 import Rdv from './pages/rdv/rdv'
 import Accueil from "./pages/accueil/accueil";
 import Contact from "./pages/contact/contact";
 import Equipe from "./pages/equipe/equipe";
+import Navbar from "./navbar/navbar";
 
 const App = () => {
   return (
       <Router>
-          <main>
-              <Routes>
-                  <Route path='/' exact element={<Accueil/>}/>
-                  <Route path='/accueil' exact element={<Accueil/>}/>
-                  <Route path='/equipe' exact element={<Equipe/>}/>
-                  <Route path='/rdv' exact element={<Rdv/>}/>
-                  <Route path='/contact' exact element={<Contact/>}/>
-              </Routes>
-          </main>
+          <Navbar/>
+              <main>
+                  <Routes>
+                      <Route path='/' exact element={<Accueil/>}/>
+                      <Route path='/accueil' exact element={<Accueil/>}/>
+                      <Route path='/equipe' exact element={<Equipe/>}/>
+                      <Route path='/rdv' exact element={<Rdv/>}/>
+                      <Route path='/contact' exact element={<Contact/>}/>
+                      <Route path='*' element={<Navigate to ='/' replace />} />
+                  </Routes>
+              </main>
       </Router>
   )
   /** constructor(props) {
