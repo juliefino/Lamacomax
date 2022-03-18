@@ -1,11 +1,35 @@
 import React from "react";
 import logo from './logo.svg';
-
+import {
+  BrowserRouter as Router,
+    Route, 
+    Redirect,
+    Switch
+} from "react-router-dom";
+import Rdv from './pages/rdv/rdv'
+import Accueil from "./pages/accueil/accueil";
+import Contact from "./pages/contact/contact";
+import Equipe from "./pages/equipe/equipe";
 
 const App = () => {
   
   return (
-      <h2>Test</h2>
+      <Router>
+        <main>
+          <Route path='/' exact>
+            <Accueil/>
+          </Route>
+          <Route path='/equipe' exact>
+            <Equipe/>
+          </Route>
+          <Route path='/rdv' exact>
+            <Rdv/>
+          </Route>
+          <Route path='/contact' exact>
+            <Contact/>
+          </Route>
+        </main>
+      </Router>
   )
   /** constructor(props) {
     super(props);
