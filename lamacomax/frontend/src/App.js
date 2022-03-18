@@ -1,34 +1,24 @@
 import React from "react";
-import logo from './logo.svg';
-import {
-  BrowserRouter as Router,
-    Route, 
-    Redirect,
-    Switch
-} from "react-router-dom";
+// import logo from './logo.svg';
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+
 import Rdv from './pages/rdv/rdv'
 import Accueil from "./pages/accueil/accueil";
 import Contact from "./pages/contact/contact";
 import Equipe from "./pages/equipe/equipe";
 
 const App = () => {
-  
   return (
       <Router>
-        <main>
-          <Route path='/' exact>
-            <Accueil/>
-          </Route>
-          <Route path='/equipe' exact>
-            <Equipe/>
-          </Route>
-          <Route path='/rdv' exact>
-            <Rdv/>
-          </Route>
-          <Route path='/contact' exact>
-            <Contact/>
-          </Route>
-        </main>
+          <main>
+              <Routes>
+                  <Route path='/' exact element={<Accueil/>}/>
+                  <Route path='/accueil' exact element={<Accueil/>}/>
+                  <Route path='/equipe' exact element={<Equipe/>}/>
+                  <Route path='/rdv' exact element={<Rdv/>}/>
+                  <Route path='/contact' exact element={<Contact/>}/>
+              </Routes>
+          </main>
       </Router>
   )
   /** constructor(props) {
