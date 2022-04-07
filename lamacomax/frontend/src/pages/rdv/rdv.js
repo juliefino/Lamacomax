@@ -2,8 +2,11 @@ import React from 'react';
 
 const Rdv = () => {
     return(
-        <div className='container'>
-            <h1 className='text-center' style={{paddingTop: '30%'}}>
+        <div style={{display:'flex', 
+            justifyContent: 'center', 
+            alignItems: 'center',
+            height: '90vh'}}>
+            <h1>
                 Rendez-vous
             </h1>
         </div>

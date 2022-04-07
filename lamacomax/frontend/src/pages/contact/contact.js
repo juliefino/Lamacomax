@@ -2,9 +2,12 @@ import React from 'react';
 
 const Contact = () => {
     return(
-        <div className='container'>
-            <h1 className='text-center' style={{paddingTop: '30%'}}>
-                Contactez-nous
+        <div style={{display:'flex', 
+            justifyContent: 'center', 
+            alignItems: 'center',
+            height: '90vh'}}>
+            <h1>
+                Contact
             </h1>
         </div>
     )
