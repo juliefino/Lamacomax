@@ -12,8 +12,8 @@ client.connect();
 
 // Test 
 
-/* 
-client.query('Select * from patient', (err, res) => {
+/*
+client.query('Select * from praticiens', (err, res) => {
     if(!err){
         console.log(res.rows);
     }
