@@ -4,8 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
-lamacomax/backend/node_modules
-./idea
+node_modules
+.env
 
 # testing
 /coverage
