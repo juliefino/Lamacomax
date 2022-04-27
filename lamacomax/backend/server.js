@@ -1,7 +1,9 @@
 const express = require('express');
 const cors = require('cors');
+const bodyParser = require("body-parser");
 const knex = require('knex');
 require('dotenv').config();
+const axios = require('axios');
 
 const db = knex({
     client: 'pg',
@@ -15,6 +17,18 @@ const db = knex({
 
 const app = express();
 
+var corsOptions = {
+    origin: "http://localhost:8081"
+}
+
+app.use(cors(corsOptions));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
+const db = require("./") //chemin de la db ??
+
+db.sequeli
+
+/*
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
