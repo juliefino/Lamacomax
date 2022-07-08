@@ -57,17 +57,39 @@ ALTER TABLE
 ALTER TABLE
     "horairedispo" ADD CONSTRAINT "horairedispo_id_praticien_foreign" FOREIGN KEY("id_praticien") REFERENCES "praticiens"("id");
 
-insert into patients (nom, prenom, age, email)
-values 
+INSERT INTO patients (nom, prenom, age, email)
+VALUES 
 ('greu', 'jacque', 35, 'lgreu@mail.j'),
 ('jerte', 'annie', 42, 'anniii@mail.com'),
 ('hartg', 'kevin', 56, 'kev@jjj.be'),
 ('loi', 'sinté', 36, 'sinteloi@patate.be');
 
-insert into praticiens (nom, prenom, type, motdepasse, login, dureeconsult)
-values
+INSERT INTO praticiens (nom, prenom, type, motdepasse, login, dureeconsult)
+VALUES
 ('Martin', 'Pierre', 'Cardiologue', 'abcde', 'mpc', 25), 
 ('Bosse', 'Michelle', 'Kinésithérapeute', 'abcde', 'bmk', 30), 
 ('Lambert', 'René', 'Généraliste', 'abcde', 'lrg', 20), 
 ('Bourdon', 'Quentin', 'Dentiste', 'abcde', 'bqd', 40), 
 ('Martin', 'Catherine', 'Podologue', 'abcde', 'mcp', 30);
+
+CREATE TABLE "horaires"(
+	"lundi" VARCHAR(255) NOT NULL,
+	"mardi" VARCHAR(255) NOT NULL,
+	"mercredi" VARCHAR(255) NOT NULL,
+	"jeudi" VARCHAR(255) NOT NULL,
+	"vendredi" VARCHAR(255) NOT NULL,
+	"samedi" VARCHAR(255) NOT NULL,
+	"dimanche" VARCHAR(255) NOT NULL
+);
+
+INSERT INTO horaires (lundi, mardi, jeudi) 
+VALUES ('09:00 - 16:00');
+
+INSERT INTO horaires (mercredi)
+VALUES ('09:00 - 14:00');
+
+INSERT INTO horaires (vendredi)
+VALUES ('09:00 - 13:00');
+
+INSERT INTO horaires (samedi, dimanche)
+VALUES ('FERMÉ');
