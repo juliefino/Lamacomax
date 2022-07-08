@@ -15,7 +15,7 @@ CREATE TABLE "praticiens"(
     "prenom" VARCHAR(255) NOT NULL,
     "type" VARCHAR(255) NOT NULL,
     "motdepasse" VARCHAR(255) NOT NULL,
-    "login" VARCHAR(255) NOT NULL,
+    "login" VARCHAR(255) NOT NULL UNIQUE,
     "description" TEXT ,
     "dureeconsult" INTEGER NOT NULL
 );
