@@ -1,12 +1,13 @@
 import React from 'react'
 import {Nav, NavLink, Bars, NavMenu} from "./navbar";
 
+
 const Navbar = () => {
     return (
         <>
         <Nav> 
             <NavLink to='/accueil'>
-                <h1>LOGO</h1>
+                'BLABLA'
             </NavLink>
             <Bars />
             <NavMenu>
