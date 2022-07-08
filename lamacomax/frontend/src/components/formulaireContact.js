@@ -25,7 +25,7 @@ const FormulaireContact = () => {
                <div className="mb-3">
                    <label style={{fontSize: '15px', color: 'white', marginLeft: '13%'}}>Numéro de téléphone : +3271159369</label>
                     <label style={{fontSize: '15px', color: 'white', marginLeft: '13%'}}>Horaires : </label>
-                    // HORAIRES
+                     <!-- HORAIRES -->
                </div>
            </div>
            
