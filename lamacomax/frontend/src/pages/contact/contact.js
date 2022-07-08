@@ -1,15 +1,9 @@
 import React from 'react';
+import FormulaireContact from "../../components/formulaireContact";
 
 const Contact = () => {
     return(
-        <div style={{display:'flex', 
-            justifyContent: 'center', 
-            alignItems: 'center',
-            height: '90vh'}}>
-            <h1>
-                Contact
-            </h1>
-        </div>
+        <FormulaireContact/>
     )
 }
 

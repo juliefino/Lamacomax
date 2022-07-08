@@ -2,13 +2,8 @@ import React from 'react';
 
 const Accueil = () => {
     return(
-        <div style={{display:'flex', 
-            justifyContent: 'center', 
-            alignItems: 'center',
-            height: '90vh'}}>
-            <h1>
-                Accueil
-            </h1>
+        <div>
+            {/* <img src={require('../../../public/1.png')} alt='toto'/> */}
         </div>
     )
 }
