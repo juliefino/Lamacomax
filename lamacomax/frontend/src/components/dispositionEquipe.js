@@ -34,6 +34,7 @@ const DispositionEquipe = () => {
                                 alignItems: 'center',
                                 height: '85px',
                                 padding: '40px',
+                                boxShadow: '0px 0px 6px 0px #a5a5a5',
                                 borderRadius: '20px'}}> {praticien.type + ' - Dr. ' + praticien.nom + ', ' + praticien.prenom} </div>
                     
                     <div className="container my-5" 
@@ -41,6 +42,7 @@ const DispositionEquipe = () => {
                                 backgroundColor : "#d2e7e3" ,    
                                 justifyContent: 'left', 
                                 alignItems: 'center',
+                                boxShadow: '0px 0px 6px 0px #a5a5a5',
                                 padding: '40px',
                                 borderRadius: '20px'}}> {praticien.description} </div>
                     
