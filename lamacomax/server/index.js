@@ -36,6 +36,15 @@ app.get('/praticiens', async(req, res) => {
     }
 })
 
+// GET HORAIRES CENTRE
+app.get('/contact', async(req, res) => {
+    try {
+        const horairescentre = await pool.query('SELECT lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche FROM horairescentre');
+        res.json(horairescentre.rows);
+    } catch(err) {
+        console.error(err.message);
+    }
+})
 
 /**
 // POST CONNECTION ESPACE DOC
