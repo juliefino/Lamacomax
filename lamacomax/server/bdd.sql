@@ -48,6 +48,17 @@ CREATE TABLE "horairedispo"(
     "pausestart" INTEGER NOT NULL,
     "pausestop" INTEGER NOT NULL
 );
+
+CREATE TABLE "horairescentre"(
+	"lundi" VARCHAR(255) NOT NULL DEFAULT 'FERMÉ',
+	"mardi" VARCHAR(255) NOT NULL DEFAULT 'FERMÉ',
+	"mercredi" VARCHAR(255) NOT NULL DEFAULT 'FERMÉ',
+	"jeudi" VARCHAR(255) NOT NULL DEFAULT 'FERMÉ',
+	"vendredi" VARCHAR(255) NOT NULL DEFAULT 'FERMÉ',
+	"samedi" VARCHAR(255) NOT NULL,
+	"dimanche" VARCHAR(255) NOT NULL
+);
+
 ALTER TABLE
     "horairedispo" ADD PRIMARY KEY("id");
 ALTER TABLE
@@ -56,6 +67,8 @@ ALTER TABLE
     "rdv" ADD CONSTRAINT "rdv_id_praticien_foreign" FOREIGN KEY("id_praticien") REFERENCES "praticiens"("id");
 ALTER TABLE
     "horairedispo" ADD CONSTRAINT "horairedispo_id_praticien_foreign" FOREIGN KEY("id_praticien") REFERENCES "praticiens"("id");
+ALTER TABLE
+    "horairescentre" ADD PRIMARY KEY("lundi", "mardi", "mercredi", "jeudi","vendredi", "samedi", "dimanche");
 
 INSERT INTO patients (nom, prenom, age, email)
 VALUES 
@@ -72,24 +85,6 @@ VALUES
 ('Bourdon', 'Quentin', 'Dentiste', 'abcde', 'bqd', 40), 
 ('Martin', 'Catherine', 'Podologue', 'abcde', 'mcp', 30);
 
-CREATE TABLE "horaires"(
-	"lundi" VARCHAR(255) NOT NULL,
-	"mardi" VARCHAR(255) NOT NULL,
-	"mercredi" VARCHAR(255) NOT NULL,
-	"jeudi" VARCHAR(255) NOT NULL,
-	"vendredi" VARCHAR(255) NOT NULL,
-	"samedi" VARCHAR(255) NOT NULL,
-	"dimanche" VARCHAR(255) NOT NULL
-);
-
-INSERT INTO horaires (lundi, mardi, jeudi) 
-VALUES ('09:00 - 16:00');
-
-INSERT INTO horaires (mercredi)
-VALUES ('09:00 - 14:00');
-
-INSERT INTO horaires (vendredi)
-VALUES ('09:00 - 13:00');
-
-INSERT INTO horaires (samedi, dimanche)
-VALUES ('FERMÉ');
+INSERT INTO horairescentre (lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche)
+VALUES
+('09:00 - 16:00', '09:00 - 16:00', '09:00 - 14:00', '09:00 - 16:00', '09:00 - 13:00', 'FERMÉ', 'FERMÉ' );
