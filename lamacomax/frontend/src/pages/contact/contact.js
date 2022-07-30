@@ -3,7 +3,9 @@ import FormulaireContact from "../../components/formulaireContact";
 
 const Contact = () => {
     return(
+        
         <FormulaireContact/>
+        
     )
 }
 
