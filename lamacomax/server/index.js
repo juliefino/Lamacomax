@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const pool = require("./bdd");
+const nodemailer = require("nodemailer");
 /** const bcrypt = require("bcrypt");
 const session = require('express-session');
 require('dotenv').config();
@@ -46,6 +47,46 @@ app.get('/contact', async(req, res) => {
     }
 })
 
+// FORMULAIRE DE CONTACT -> ENVOIE DE MAILS
+
+const contactEmail = nodemailer.createTransport({
+  service: 'hotmail',
+  auth: {
+    user: process.env.MAIL_ADDRESS,
+    pass: process.env.MAIL_PASSWORD,
+  },
+});
+
+contactEmail.verify((error) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log("Ready to Send");
+  }
+});
+
+app.post("/contact", (req, res) => {
+  const nom = req.body.nom;
+  const email = req.body.email;
+  const message = req.body.message; 
+  const mail = {
+      sender: email, 
+      to: process.env.MAIL_ADDRESS, 
+      subject: "Notification Lamacomax", 
+      html: `<p>Bonjour, un nouveau message est arrivé depuis votre site Lamacomax :</p>
+             <p>Nom: ${nom}</p>
+             <p>Email: ${email}</p>
+             <p>Message: ${message}</p>`,
+  };
+  contactEmail.sendMail(mail, (error) => {
+    if (error) {
+      res.json({ status: "ERROR" });
+    } else {
+      res.json({ status: "Message Sent" });
+    }
+  });
+});
+
 /**
 // POST CONNECTION ESPACE DOC
 app.post('/espacedoc',async(req, res) => {
@@ -78,7 +119,7 @@ app.post('/espacedoc',async(req, res) => {
 **/
 
 app.listen(5000, () => {
-    console.log("server sur port 5000")
+    console.log("server running sur port 5000")
 })
 
 // SERVER WATCHING FILE COMMAND : nodemon index
