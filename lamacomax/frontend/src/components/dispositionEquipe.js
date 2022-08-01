@@ -29,22 +29,23 @@ const DispositionEquipe = () => {
                     <div className="container my-5" 
                             style={{display:'flex',
                                 position: 'relative',
-                                backgroundColor : "#638899" ,    
+                                color: '#FFFFFF',
+                                backgroundColor : "#6C7D71" ,    
                                 justifyContent: 'left', 
                                 alignItems: 'center',
-                                height: '85px',
-                                padding: '40px',
+                                height: '65px',
+                                padding: '15px',
                                 boxShadow: '0px 0px 6px 0px #a5a5a5',
-                                borderRadius: '20px'}}> {praticien.type + ' - Dr. ' + praticien.nom + ', ' + praticien.prenom} </div>
+                                borderRadius: '1rem'}}> {praticien.type + ' - Dr. ' + praticien.nom + ', ' + praticien.prenom} </div>
                     
                     <div className="container my-5" 
                         style={{display:'flex',
-                                backgroundColor : "#d2e7e3" ,    
+                                backgroundColor : "#B4D1BD" ,    
                                 justifyContent: 'left', 
                                 alignItems: 'center',
                                 boxShadow: '0px 0px 6px 0px #a5a5a5',
-                                padding: '40px',
-                                borderRadius: '20px'}}> {praticien.description} </div>
+                                padding: '15px',
+                                borderRadius: '1rem'}}> {praticien.description} </div>
                     
                     </div>
                 ))}
