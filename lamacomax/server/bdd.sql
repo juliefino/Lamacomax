@@ -3,9 +3,11 @@ CREATE TABLE "rdv"(
     "id_patient" INTEGER NOT NULL,
     "id_praticien" INTEGER NOT NULL,
     "date" DATE NOT NULL,
-    "note" VARCHAR(255) NOT NULL,
-    "start" INTEGER NOT NULL,
-    "stop" INTEGER NOT NULL
+    "note" VARCHAR(255),
+    "start" TIMESTAMP NOT NULL, 
+    "stop" TIMESTAMP NOT NULL, 
+    "status_id" NUMBER NOT NULL, 
+    "prise_rdv" DATE NOT NULL
 );
 ALTER TABLE
     "rdv" ADD PRIMARY KEY("id");
@@ -27,7 +29,8 @@ CREATE TABLE "patients"(
     "nom" VARCHAR(255) NOT NULL,
     "prenom" VARCHAR(255) NOT NULL,
     "age" INTEGER NOT NULL,
-    "email" VARCHAR(255) NOT NULL
+    "email" VARCHAR(255) NOT NULL,
+    "telephone" NUMBER NOT NULL
 );
 ALTER TABLE
     "patients" ADD PRIMARY KEY("id");
@@ -42,11 +45,10 @@ ALTER TABLE
 CREATE TABLE "horairedispo"(
     "id" serial NOT NULL,
     "id_praticien" INTEGER NOT NULL,
-    "date" DATE NOT NULL,
+    "jours" VARCHAR(255),
     "starthour" INTEGER NOT NULL,
     "stophour" INTEGER NOT NULL,
-    "pausestart" INTEGER NOT NULL,
-    "pausestop" INTEGER NOT NULL
+    "disponible" BOOLEAN NOT NULL DEFAULT false 
 );
 
 CREATE TABLE "horairescentre"(
